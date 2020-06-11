@@ -4,7 +4,7 @@ NAME = VTSPS2-EXEC
 EE_BIN = $(NAME).ELF
 EE_BIN_PACKED = $(NAME)-packed.ELF
 EE_BIN_STRIPPED = $(NAME)-stripped.ELF
-EE_OBJS = $(NAME).o pad.o
+EE_OBJS = $(NAME).o pad.o loader_elf.o
 EE_LIBS = -lc -lpatches -ldebug -lpad
 
 all:
@@ -17,8 +17,16 @@ clean:
 	@echo "================"
 	@echo "=== Cleaning ==="
 	@echo "================"
-	rm -fr *.ELF *.o *.bak
+	rm -f *.elf *.o *.s *.bak loader/*.o loader/*.elf
 
+#wLaunchELF's loader.elf
+
+loader/loader.elf: loader
+	$(MAKE) -C $<
+
+loader_elf.s: loader/loader.elf
+	bin2s $< $@ loader_elf
+	
 run: $(EE_BIN)
 	ps2client execee host:$(EE_BIN)
 

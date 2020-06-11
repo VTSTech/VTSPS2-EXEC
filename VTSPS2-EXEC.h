@@ -10,6 +10,8 @@
 #include <sifrpc.h>
 #include <iopcontrol.h>
 #include <iopheap.h>
+#include <kernel.h>
+#include <string.h>
 
 //** pad.c and pad related functions from wLaunchElf 8d4a0c2
 
