@@ -4,7 +4,9 @@
 
 Simple homebrew demonstrating various functions/methods for launching ELF's on PS2.
 
+<pre>
 pad.c/h from wLaunchElf 8d4a0c2 by AKuHAK and SP193
 Function LoadElf() from main.c MPLUS-LOADER3.ELF
 Packed with PS2-Packer v1.1.0 by Nicolas "Pixel" Noble
 Written with PS2DEV SDK (Compiled May 28th 2020, Commit: ec0cbfd)
+</pre>
